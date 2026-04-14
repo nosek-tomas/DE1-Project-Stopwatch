@@ -1,5 +1,5 @@
-
-
+-- Component derivated from display_driver.vhd from PC LABs
+-- Extended for disaplying on all 8 displays with longer input vector
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.numeric_std.all;  -- Package for data types conversion
@@ -8,9 +8,9 @@ use ieee.numeric_std.all;  -- Package for data types conversion
 entity display_driver2 is
     Port ( clk : in STD_LOGIC;
            rst : in STD_LOGIC;
-           data : in STD_LOGIC_VECTOR (7 downto 0);
+           data : in STD_LOGIC_VECTOR (31 downto 0);
            seg : out STD_LOGIC_VECTOR (6 downto 0);
-           anode : out STD_LOGIC_VECTOR (1 downto 0));
+           anode : out STD_LOGIC_VECTOR (7 downto 0));
 end display_driver2;
 
 architecture Behavioral of display_driver2 is
@@ -48,7 +48,7 @@ architecture Behavioral of display_driver2 is
     signal sig_en : std_logic;
 
     -- TODO: Add other needed signals
-    signal sig_digit : std_logic_vector(0 downto 0);
+    signal sig_digit : std_logic_vector(2 downto 0);
     signal sig_bin : std_logic_vector(3 downto 0);
 begin
 
@@ -62,11 +62,14 @@ begin
             rst => rst,
             ce  => sig_en
         );
-
+        
+    ------------------------------------------------------------------------
+    -- Counter for interating through digits
+    ------------------------------------------------------------------------
     counter_0 : counter2_bcd
         generic map (
-            G_BITS => 1,
-            G_MAX => 1
+            G_BITS => 3,
+            G_MAX => 7
         )
         port map (
             clk => clk,
@@ -75,11 +78,6 @@ begin
             cnt => sig_digit
         );
 
-    ------------------------------------------------------------------------
-    -- Digit select
-    ------------------------------------------------------------------------
-    sig_bin <= data(3 downto 0) when sig_digit = "0" else
-               data(7 downto 4);
 
     ------------------------------------------------------------------------
     -- 7-segment decoder
@@ -93,20 +91,46 @@ begin
         );
 
     ------------------------------------------------------------------------
-    -- Anode select process
+    -- Anode select process + select digit to render
     ------------------------------------------------------------------------
-    p_anode_select : process (sig_digit) is
+    p_anode_select_and_digit_render : process (sig_digit, data) is
     begin
         case sig_digit is
-            when "0" =>
-                anode <= "10";  -- Right digit active
+            when "000" =>
+                anode <= "11111110";            -- 1. digit active
+                sig_bin <= data(3 downto 0);    -- send 1. digit from input vector
                 
-            when "1" =>
-                anode <= "01"; -- left active
-            -- TODO: Add another anode selection(s)
-
+            when "001" =>
+                anode <= "11111101";            -- 2. digit active
+                sig_bin <= data(7 downto 4);    -- send 2. digit from input vector
+                
+            when "010" =>
+                anode <= "11111011";             -- 3. digit active
+                sig_bin <= data(11 downto 8);    -- send 3. digit from input vector
+            
+            when "011" =>
+                anode <= "11110111";             -- 4. digit active
+                sig_bin <= data(15 downto 12);   -- send 4. digit from input vector
+                
+            when "100" =>
+                anode <= "11101111";             -- 5. digit active
+                sig_bin <= data(19 downto 16);   -- send 5. digit from input vector
+            
+            when "101" =>
+                anode <= "11011111";             -- 6. digit active 
+                sig_bin <= data(23 downto 20);   -- send 6. digit from input vector
+                
+            when "110" =>
+                anode <= "10111111";             -- 7. digit active 
+                sig_bin <= data(27 downto 24);   -- send 7. digit from input vector
+                                
+            when "111" =>
+                anode <= "01111111";             -- 8. digit active                                                                          
+                sig_bin <= data(31 downto 28);   -- send 8. digit from input vector
+                                
             when others =>
-                anode <= "11";  -- All off
+                anode <= "11111111"; -- All off
+                sig_bin <= "0000";   -- Output 0 0 0 0
         end case;
     end process;
 

@@ -18,7 +18,7 @@ architecture Behavioral of time_counter is
     signal sig_time_ns :  STD_LOGIC_VECTOR(3 downto 0); -- Setiny
     signal sig_time_ms :  STD_LOGIC_VECTOR(3 downto 0); -- Desetiny
     signal sig_time_s :  STD_LOGIC_VECTOR(3 downto 0); -- Jednotky sekund
-    signal sig_time_10s :  STD_LOGIC_VECTOR(3 downto 0); -- Desítky sekund
+    signal sig_time_10s :  STD_LOGIC_VECTOR(3 downto 0); -- Desitky sekund
     signal sig_time_m :  STD_LOGIC_VECTOR(3 downto 0); -- Minuty
     signal sig_time_10m :  STD_LOGIC_VECTOR(3 downto 0); -- Minuty
     signal sig_time_h :  STD_LOGIC_VECTOR(3 downto 0); -- Minuty
@@ -177,7 +177,9 @@ begin
             ovf => open
         );
         
-        
+    ------------------------------------
+    -- Combine internal signals to output vector
+    ------------------------------------        
         time_actual(3 downto 0) <= sig_time_ns;
         time_actual(7 downto 4) <= sig_time_ms;
         time_actual(11 downto 8) <= sig_time_s;
