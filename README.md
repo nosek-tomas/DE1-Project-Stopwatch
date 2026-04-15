@@ -12,3 +12,4 @@ Cílem projektu je v rámci předmětu DE1 navrhnout a implementovat digitální
 K ovládání stopek slouží integrovaná tlačítka desky pro funkce start/stop, reset a uložení mezičasu.
 Zdrojový kod je v jazyce VHDL, testovací prostředí a simulace vytvořeny pomocí programu Vivado.
 <img width="1349" height="606" alt="IMG_0178" src="https://github.com/user-attachments/assets/0b7e4dfb-99b2-4364-b262-5a2a3b8f0625" />
+.
