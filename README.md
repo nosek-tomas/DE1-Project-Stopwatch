@@ -2,10 +2,10 @@
 
 Semestrální projekt z předmětu BPC-DE1 - VHDL StopWatch
 
-Členové týmu
-Matěj Berger
-Tomáš Nosek
-Eduard Josefík
+Členové týmu:
+Matěj Berger, 
+Tomáš Nosek, 
+Eduard Josefík.
 
 Digitalní stopky s funkci lap
 Cílem projektu je v rámci předmětu DE1 navrhnout a implementovat digitální stopky s funkcí uložení mezi času (lap). K realizaci projektu je použita deska Arty A7 50, která slouží jako hlavní řídící jednotka. Projekt je složen z několika bloků: clk_en pro generování časových pulzů, counter jako binarního čitače, reg_lap jako registru pro ukládání mezičasu, disp_driver jako budiče sedmisegmentového displeye, který zajišťuje zobrazení uložených lap časů. 
