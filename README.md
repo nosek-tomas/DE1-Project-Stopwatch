@@ -6,8 +6,13 @@
 - Eduard Josefík
 
 ## Digitalní stopky s funkci lap:
-Cílem projektu je v rámci předmětu DE1 navrhnout a implementovat digitální stopky s funkcí uložení mezi času (lap). K realizaci projektu je použita deska Nexys A7 50, která slouží jako hlavní řídící jednotka. Projekt je složen z několika bloků: clk_en pro generování časových pulzů, counter jako binarního čitače, reg_lap jako registru pro ukládání mezičasu, disp_driver jako budiče sedmisegmentového displeye, který zajišťuje zobrazení uložených lap časů. 
-K ovládání stopek slouží integrovaná tlačítka desky pro funkce start/stop, reset a uložení mezičasu.
+- Cílem projektu je v rámci předmětu DE1 navrhnout a implementovat digitální stopky s funkcí uložení mezi času (lap). K realizaci projektu je použita deska Nexys A7 50t, která slouží jako hlavní řídící jednotka.
+- Projekt je složen z několika bloků:
+  - clk_en pro generování časových pulzů
+  - counter jako binarní čitač
+  - reg_lap jako registru pro ukládání mezičasu
+  - disp_driver jako budiče sedmisegmentového displeye, který zajišťuje zobrazení uložených lap časů. 
+- K ovládání stopek slouží integrovaná tlačítka desky pro funkce start/stop, reset a uložení mezičasu.
 Zdrojový kod je v jazyce VHDL, testovací prostředí a simulace vytvořeny pomocí programu Vivado.
 
 ### Top-level schéma:
@@ -20,7 +25,11 @@ Zdrojový kod je v jazyce VHDL, testovací prostředí a simulace vytvořeny pom
 
 
 ## Hardware:
-Nexys A7 50t board is a complete, ready-to-use digital circuit development platform based on the latest AMD Artix™ 7 Field Programmable Gate Array (FPGA) from AMD. With its large, high-capacity FPGA, generous external memories, and collection of USB, Ethernet, and other ports, the Nexys A7 can host designs ranging from introductory combinational circuits to powerful embedded processors. Several built-in peripherals, including an accelerometer, temperature sensor, MEMs digital microphone, a speaker amplifier, and several I/O devices allow the Nexys A7 to be used for a wide range of designs without needing any other components.
+- Nexys A7 50t board is a complete, ready-to-use digital circuit development platform based on the latest AMD Artix™ 7 Field Programmable Gate Array (FPGA) from AMD. With its large, high-capacity FPGA, generous external memories, and collection of USB, Ethernet, and other ports, the Nexys A7 can host designs ranging from introductory combinational circuits to powerful embedded processors. Several built-in peripherals, including an accelerometer, temperature sensor, MEMs digital microphone, a speaker amplifier, and several I/O devices allow the Nexys A7 to be used for a wide range of designs without needing any other components.
 ### Nexys A7 50t board:
 <img width="600" height="434" alt="nexys-a7" src="./img/readme_pics/nexys-a7.png" />
-.
+
+
+## Popis VHDL modulů:
+### BTNL:
+- 
