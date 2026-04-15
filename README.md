@@ -34,5 +34,5 @@ Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny
 
 
 ## Popis VHDL modulů:
-### BTNL:
-- 
+### clk_en:
+- generuje signál 100Hz (perioda 10 ns)
