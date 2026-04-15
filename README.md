@@ -8,10 +8,13 @@
 ## Digitalní stopky s funkci lap:
 - Cílem projektu je v rámci předmětu DE1 navrhnout a implementovat digitální stopky s funkcí uložení mezi času (lap). K realizaci projektu je použita deska Nexys A7 50t, která slouží jako hlavní řídící jednotka.
 - Projekt je složen z několika bloků:
-  - clk_en pro generování časových pulzů
-  - counter jako binarní čitač
-  - reg_lap jako registru pro ukládání mezičasu
-  - disp_driver jako budiče sedmisegmentového displeye, který zajišťuje zobrazení uložených lap časů. 
+  - `clk_en` pro generování časových pulzů
+  - `debouncer` pro eliminaci chvění signálu z tlačitka
+  - `stopwatch_ctrl` jako ovladač časového čitače
+  - `time_counter` jako binarní čitač
+  - `reg_lap` jako registru pro ukládání mezičasu
+  - `display_ctrl` jako datov přepínač displayového ovladače
+  - `disp_driver2` jako budiče sedmisegmentového displeye, který zajišťuje zobrazení uložených lap časů. 
 - K ovládání stopek slouží integrovaná tlačítka desky pro funkce start/stop, reset a uložení mezičasu.
 Zdrojový kod je v jazyce VHDL, testovací prostředí a simulace vytvořeny pomocí programu Vivado.
 
