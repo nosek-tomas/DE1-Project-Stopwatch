@@ -19,5 +19,5 @@ Zdrojový kod je v jazyce VHDL, testovací prostředí a simulace vytvořeny pom
 
 Hardware:
 Nexys A7 50 board is a complete, ready-to-use digital circuit development platform based on the latest AMD Artix™ 7 Field Programmable Gate Array (FPGA) from AMD. With its large, high-capacity FPGA, generous external memories, and collection of USB, Ethernet, and other ports, the Nexys A7 can host designs ranging from introductory combinational circuits to powerful embedded processors. Several built-in peripherals, including an accelerometer, temperature sensor, MEMs digital microphone, a speaker amplifier, and several I/O devices allow the Nexys A7 to be used for a wide range of designs without needing any other components.
-<img width="600" height="434" alt="nexys-a7" src="https://github.com/user-attachments/assets/39c77aed-ae81-4215-a42e-293bd4423027" />
+<img width="600" height="434" alt="nexys-a7" src="./img/readme_pics/nexys-a7.png" />
 .
