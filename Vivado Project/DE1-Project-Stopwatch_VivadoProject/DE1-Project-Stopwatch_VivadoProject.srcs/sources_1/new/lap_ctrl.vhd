@@ -47,10 +47,19 @@ begin
     
     p_memory_write : process (clk)
     begin
+        if rising_edge(clk) then
+            if rst = '1' then
+                s_memory <= (others => (others => '0')); -- reset memory
+                led <= (others => '0'); -- reset LEDS
+                sig_write_ptr <= 16;    -- move pointer to first (resp. last) memory slot
+            else
+                -- ADD SAVE LOGIC!!!!
+            end  if;
+        end  if;
     end process p_memory_write;
     
     
-    p_memory_read_and_leds : process (sw_in, s_write_ptr, s_memory, sig_ce_blink)
+    p_memory_read_and_leds : process (sw, sig_write_ptr, s_memory, sig_ce_2hz)
     begin
     end process p_memory_read_and_leds;
 
