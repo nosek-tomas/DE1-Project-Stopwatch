@@ -12,6 +12,10 @@ Cílem projektu je v rámci předmětu DE1 navrhnout a implementovat digitální
 K ovládání stopek slouží integrovaná tlačítka desky pro funkce start/stop, reset a uložení mezičasu.
 Zdrojový kod je v jazyce VHDL, testovací prostředí a simulace vytvořeny pomocí programu Vivado.
 <img width="1349" height="606" alt="IMG_0178" src="https://github.com/user-attachments/assets/0b7e4dfb-99b2-4364-b262-5a2a3b8f0625" />
+<img width="1152" height="648" alt="SCHEMA_s_popisky" src="https://github.com/user-attachments/assets/3a6e09e9-87a9-4d9c-8684-368834cf53d3" />
+
+
+
 
 Hardware:
 Nexys A7 50 board is a complete, ready-to-use digital circuit development platform based on the latest AMD Artix™ 7 Field Programmable Gate Array (FPGA) from AMD. With its large, high-capacity FPGA, generous external memories, and collection of USB, Ethernet, and other ports, the Nexys A7 can host designs ranging from introductory combinational circuits to powerful embedded processors. Several built-in peripherals, including an accelerometer, temperature sensor, MEMs digital microphone, a speaker amplifier, and several I/O devices allow the Nexys A7 to be used for a wide range of designs without needing any other components.
