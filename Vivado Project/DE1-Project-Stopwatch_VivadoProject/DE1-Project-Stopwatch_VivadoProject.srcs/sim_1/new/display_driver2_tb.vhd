@@ -15,7 +15,8 @@ architecture tb of display_driver2_tb is
             rst   : in STD_LOGIC;
             data  : in STD_LOGIC_VECTOR (31 downto 0);
             seg   : out STD_LOGIC_VECTOR (6 downto 0);
-            anode : out STD_LOGIC_VECTOR (7 downto 0)
+            anode : out STD_LOGIC_VECTOR (7 downto 0);
+            datapoint : out STD_LOGIC
         );
     end component;
 
@@ -27,6 +28,7 @@ architecture tb of display_driver2_tb is
     signal data  : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
     signal seg   : STD_LOGIC_VECTOR (6 downto 0);
     signal anode : STD_LOGIC_VECTOR (7 downto 0);
+    signal datapoint : STD_LOGIC;
 
     -- Clock settings (100 MHz)
     constant TbPeriod : time := 10 ns;
@@ -43,7 +45,8 @@ begin
             rst   => rst,
             data  => data,
             seg   => seg,
-            anode => anode
+            anode => anode,
+            datapoint => datapoint
         );
 
     ------------------------------------------------------------------------

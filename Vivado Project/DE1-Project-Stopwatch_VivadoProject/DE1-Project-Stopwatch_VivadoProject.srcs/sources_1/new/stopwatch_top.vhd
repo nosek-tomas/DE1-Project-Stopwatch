@@ -9,7 +9,8 @@ entity stopwatch_top is
            btnl : in STD_LOGIC; -- Start/stop
            --btnr : in STD_LOGIC;  -- Lap
            seg : out STD_LOGIC_VECTOR (6 downto 0); -- Segment display
-           an : out STD_LOGIC_VECTOR (7 downto 0) -- Anodes to turn on specific display
+           an : out STD_LOGIC_VECTOR (7 downto 0); -- Anodes to turn on specific display
+           dp :out STD_LOGIC
            );
 end stopwatch_top;
 
@@ -73,7 +74,8 @@ architecture Behavioral of stopwatch_top is
             rst   : in STD_LOGIC;
             data  : in STD_LOGIC_VECTOR (31 downto 0);
             seg   : out STD_LOGIC_VECTOR (6 downto 0);
-            anode : out STD_LOGIC_VECTOR (7 downto 0)
+            anode : out STD_LOGIC_VECTOR (7 downto 0);
+            datapoint : out STD_LOGIC
         );
     end component;
     
@@ -150,7 +152,8 @@ begin
             rst   => btnd,
             data  => sig_display_time,
             seg   => seg,
-            anode => an
+            anode => an,
+            datapoint => dp
         );
-
+    
 end Behavioral;
