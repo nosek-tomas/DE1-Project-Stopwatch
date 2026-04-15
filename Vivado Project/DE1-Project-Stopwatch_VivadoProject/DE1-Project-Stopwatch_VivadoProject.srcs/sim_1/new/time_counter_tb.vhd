@@ -14,11 +14,8 @@ architecture tb of time_counter_tb is
             clk      : in  STD_LOGIC;
             rst      : in  STD_LOGIC;
             en       : in  STD_LOGIC;
-            time_ns  : out STD_LOGIC_VECTOR(3 downto 0); 
-            time_ms  : out STD_LOGIC_VECTOR(3 downto 0); 
-            time_s   : out STD_LOGIC_VECTOR(3 downto 0); 
-            time_10s : out STD_LOGIC_VECTOR(3 downto 0)  
-        );
+            time_actual : out STD_LOGIC_VECTOR(31 downto 0)-- Time output
+            ); 
     end component;
 
     ------------------------------------
@@ -28,10 +25,6 @@ architecture tb of time_counter_tb is
     signal rst      : STD_LOGIC := '0';
     signal en       : STD_LOGIC := '0';
     
-    signal time_ns  : STD_LOGIC_VECTOR(3 downto 0);
-    signal time_ms  : STD_LOGIC_VECTOR(3 downto 0);
-    signal time_s   : STD_LOGIC_VECTOR(3 downto 0);
-    signal time_10s : STD_LOGIC_VECTOR(3 downto 0);
 
     -- Clock settings
     constant TbPeriod : time := 10 ns;
@@ -47,10 +40,7 @@ begin
             clk      => clk,
             rst      => rst,
             en       => en,
-            time_ns  => time_ns,
-            time_ms  => time_ms,
-            time_s   => time_s,
-            time_10s => time_10s
+            time_actual => open
         );
 
     ------------------------------------
@@ -78,14 +68,15 @@ begin
         -- We make realistic short pulses.
         -- We loop 115 times to see fast counting.
         -- Output will be 0 1 1 5 (1.15 seconds).
-        for i in 1 to 115 loop
+        for i in 1 to 1150 loop
             en <= '1';              -- Enable is ON
             wait for TbPeriod;      -- Wait 1 clock tick
             
-            en <= '0';              -- Enable is OFF
+                          -- Enable is OFF
             wait for 3 * TbPeriod;  -- Wait 3 ticks (pause between pulses)
         end loop;
-
+        wait for 1000000000 ns;
+        
         -- C) TEST STOP
         -- Do not send enable pulses. Time must stop and wait.
         en <= '0';
