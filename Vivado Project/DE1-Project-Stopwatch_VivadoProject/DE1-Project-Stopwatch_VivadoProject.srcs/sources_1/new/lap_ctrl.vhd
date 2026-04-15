@@ -31,8 +31,27 @@ architecture Behavioral of lap_ctrl is
     ----------------------------------------------------------------
     -- 2. Signal Declaration
     ----------------------------------------------------------------
-    signal sig_ce_2hz : STD_LOGIC; -- for LED Blinkg
+    signal sig_ce_2hz : STD_LOGIC;                      -- for LED Blinkg
+    signal sig_write_ptr : integer range 0 to 16 := 0;  -- Numeric pointer to first free memory slot to write
+    
+    ----------------------------------------------------------------
+    -- 3. LAP memory "storage"
+    ----------------------------------------------------------------
+    type t_memory is array (0 to 15) of std_logic_vector(31 downto 0); --new datatype
+    signal s_memory : t_memory := (others => (others => '0'));         -- Create storage and initialise with zeros 
 begin
 
+    ----------------------------------------------------------------
+    -- Clock Enable instantiation --> for LED blinking
+    ----------------------------------------------------------------
+    
+    p_memory_write : process (clk)
+    begin
+    end process p_memory_write;
+    
+    
+    p_memory_read_and_leds : process (sw_in, s_write_ptr, s_memory, sig_ce_blink)
+    begin
+    end process p_memory_read_and_leds;
 
 end Behavioral;
