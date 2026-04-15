@@ -9,9 +9,9 @@
 - Cílem projektu je v rámci předmětu DE1 navrhnout a implementovat **digitální stopky s funkcí uložení mezi času (lap)**. K realizaci projektu je použita deska **Nexys A7 50t**, která slouží jako hlavní řídící jednotka.
 - Projekt je složen z několika bloků:
   - `clk_en` pro generování časových pulzů
-  - `debouncer` pro eliminaci chvění signálu z tlačitka
+  - `debouncer` pro eliminaci chvění signálu z tlačítka
   - `stopwatch_ctrl` jako ovladač časového čitače
-  - `time_counter` jako binarní čitač
+  - `time_counter` jako binarní čitač času
   - `lap_ctrl` jako registru pro ukládání mezičasu
   - `display_ctrl` jako datov přepínač displayového ovladače
   - `disp_driver2` jako budiče sedmisegmentového displeye, který zajišťuje zobrazení uložených lap časů. 
