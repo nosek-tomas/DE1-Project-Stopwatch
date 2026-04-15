@@ -12,7 +12,7 @@
   - `debouncer` pro eliminaci chvění signálu z tlačitka
   - `stopwatch_ctrl` jako ovladač časového čitače
   - `time_counter` jako binarní čitač
-  - `reg_lap` jako registru pro ukládání mezičasu
+  - `lap_ctrl` jako registru pro ukládání mezičasu
   - `display_ctrl` jako datov přepínač displayového ovladače
   - `disp_driver2` jako budiče sedmisegmentového displeye, který zajišťuje zobrazení uložených lap časů. 
 - K ovládání stopek slouží **integrovaná tlačítka** desky pro funkce start/stop, reset a uložení mezičasu.
