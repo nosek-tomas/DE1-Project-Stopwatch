@@ -101,41 +101,43 @@ begin
             when "000" =>
                 anode <= "11111110";            -- 1. digit active
                 sig_bin <= data(3 downto 0);    -- send 1. digit from input vector
-                datapoint <= '1';
+                datapoint <= '1';               -- DP ff
                 
             when "001" =>
                 anode <= "11111101";            -- 2. digit active
                 sig_bin <= data(7 downto 4);    -- send 2. digit from input vector
-                datapoint <= '1';
+                datapoint <= '1';               -- DP off
                 
             when "010" =>
                 anode <= "11111011";             -- 3. digit active
                 sig_bin <= data(11 downto 8);    -- send 3. digit from input vector
-                datapoint <= '0';
+                datapoint <= '0';                -- DP on
                 
             when "011" =>
                 anode <= "11110111";             -- 4. digit active
                 sig_bin <= data(15 downto 12);   -- send 4. digit from input vector
-                datapoint <= '1';
+                datapoint <= '1';                -- DP off
                 
             when "100" =>
                 anode <= "11101111";             -- 5. digit active
                 sig_bin <= data(19 downto 16);   -- send 5. digit from input vector
-                datapoint <= '1';
+                datapoint <= '0';                -- DP on
                 
             when "101" =>
                 anode <= "11011111";             -- 6. digit active 
                 sig_bin <= data(23 downto 20);   -- send 6. digit from input vector
-                datapoint <= '0';
+                datapoint <= '1';                -- DP off
                 
             when "110" =>
                 anode <= "10111111";             -- 7. digit active 
                 sig_bin <= data(27 downto 24);   -- send 7. digit from input vector
-                                
+                datapoint <= '0';                -- DP on
+                                                
             when "111" =>
                 anode <= "01111111";             -- 8. digit active                                                                          
                 sig_bin <= data(31 downto 28);   -- send 8. digit from input vector
-                                
+                datapoint <= '1';                -- DP off
+                        
             when others =>
                 anode <= "11111111"; -- All off
                 sig_bin <= "0000";   -- Output 0 0 0 0
