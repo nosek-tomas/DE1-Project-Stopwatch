@@ -13,7 +13,7 @@
   - `stopwatch_ctrl` jako ovladač časového čitače
   - `time_counter` jako binarní čitač času
   - `lap_ctrl` jako registru pro ukládání mezičasu
-  - `display_ctrl` jako datov přepínač displayového ovladače
+  - `display_swtich` jako datov přepínač displayového ovladače
   - `disp_driver2` jako budiče sedmisegmentového displeye, který zajišťuje zobrazení uložených lap časů. 
 - K ovládání stopek slouží **integrovaná tlačítka** desky pro funkce start/stop, reset a uložení mezičasu.
 Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny pomocí programu **Vivado**.
@@ -34,5 +34,43 @@ Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny
 
 
 ## Popis VHDL modulů:
-### clk_en:
+### Clk_en:
 - generuje signál 100Hz (perioda 10 ns)
+  
+| **Port** | **Direction** | **Type** | **Description** |
+| :-: | :-: | :-- | :-- |
+| `clk` | in | `std_logic` | Main clock |
+| `rst` | in | `std_logic` | High-active synchronous reset |
+| `ce` | out | `std_logic` | Vector of input bits, 4 per digit |
+   
+### Debounce
+- eliminuje switch bounce
+| **Port** | **Direction** | **Type** | **Description** |
+| :-: | :-: | :-- | :-- |
+| `clk` | in  | `std_logic` | Main clock |
+| `rst` | in  | `std_logic` | High-active synchronous reset |
+| `btn_in` | in  | `std_logic` | Raw push-button input (may contain bounce) |
+| `btn_press` | out | `std_logic` | One-clock pulse generated when the button is pressed |
+  
+### Stopwatch_ctrl
+- řídí počítání času
+  
+| **Port** | **Direction** | **Type** | **Description** |
+| :-: | :-: | :-- | :-- |
+| `clk` | in  | `std_logic` | Main clock |
+| `rst` | in  | `std_logic` | High-active synchronous reset |
+| `btn_in` | in  | `std_logic` | Raw push-button input (may contain bounce) |
+| `clk_en_in` | in | `std_logic` | One-clock pulse generated when the button is pressed |
+| `clk_en_out` | out | `std_logic` | One-clock pulse generated when the button is pressed |
+
+### Time_counter
+- sčítá signály po 10ns, které pak nechává přetéct na vyšší jednotky
+
+### Lap_register
+- složí jako paměť k ukládání a vyvolávání času
+
+### Display_switch
+- ovládá input data pro driver
+
+### Display_driver
+- ovládá segmenty na 7 segmentovém display, podle dat z display_switche
