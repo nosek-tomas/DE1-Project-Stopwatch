@@ -27,6 +27,21 @@ architecture Behavioral of lap_ctrl is
                rst : in STD_LOGIC;
                ce : out STD_LOGIC);
     end component clk_en;
+    
+    -- Component declaration for counter --> led blinkng
+    component counter2_bcd is
+    generic ( 
+        G_BITS : positive;
+        G_MAX : positive
+    );  
+    port (
+        clk : in  std_logic;                              --! Main clock
+        rst : in  std_logic;                              --! High-active synchronous reset
+        en  : in  std_logic;                              --! Clock enable input
+        cnt : out std_logic_vector(G_BITS - 1 downto 0);  --! Counter value
+        ovf : out std_logic                               --! Overflow to next counter
+    );
+    end component counter2_bcd;
  
     ----------------------------------------------------------------
     -- 2. Signal Declaration
@@ -53,7 +68,19 @@ begin
             rst => rst,
             ce => sig_ce_2hz
         );
-        
+     
+     cnt_ns : counter2_bcd
+        generic map (
+            G_MAX => 1,
+            G_BITS => 1
+        )
+        port map (
+            clk => clk,
+            rst => rst,
+            en  => sig_ce_2hz,
+            cnt(0) => sig_blinking,
+            ovf => open 
+        );
     ----------------------------------------------------------------
     -- Saveing actual time to memory
     ----------------------------------------------------------------        
@@ -96,7 +123,7 @@ begin
             if sw(15 - i) = '1' and i < sig_write_ptr then
                 lap_time_output <= sig_memory(i);
                 show_lap <= '1';
-                led(15 - i) <= sig_ce_2hz; -- LED blinking
+                led(15 - i) <= sig_blinking; -- LED blinking
                 
                 exit; -- End searching for active switch
                 
