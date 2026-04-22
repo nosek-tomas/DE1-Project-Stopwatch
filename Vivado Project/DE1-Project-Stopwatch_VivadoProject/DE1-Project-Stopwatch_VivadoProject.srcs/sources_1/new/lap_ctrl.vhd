@@ -19,8 +19,9 @@ end lap_ctrl;
 architecture Behavioral of lap_ctrl is
 
     ----------------------------------------------------------------
-    -- 1. Component declaration for clock enable --> for LED blinking
+    -- 1. Component declaration 
     ----------------------------------------------------------------
+    -- Clock enable --> freqency of LED blinking
     component clk_en is
         generic ( G_MAX : positive);  
         Port ( clk : in STD_LOGIC;
@@ -28,7 +29,7 @@ architecture Behavioral of lap_ctrl is
                ce : out STD_LOGIC);
     end component clk_en;
     
-    -- Component declaration for counter --> led blinkng
+    -- Counting from 0 to 1 for changing state of LED in active memory slot
     component counter2_bcd is
     generic ( 
         G_BITS : positive;
@@ -69,7 +70,7 @@ begin
             ce => sig_ce_2hz
         );
      
-     cnt_ns : counter2_bcd
+     cnt_blink : counter2_bcd
         generic map (
             G_MAX => 1,
             G_BITS => 1

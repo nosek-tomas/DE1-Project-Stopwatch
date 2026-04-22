@@ -110,6 +110,7 @@ architecture Behavioral of stopwatch_top is
     signal sig_display_time : STD_LOGIC_VECTOR (31 downto 0);
     signal sig_lap_time     : STD_LOGIC_VECTOR (31 downto 0);
     
+    -- Signal that switch 'display_switch' to show lap data
     signal sig_show_lap : STD_LOGIC;
     
 begin
@@ -186,6 +187,7 @@ begin
             datapoint => dp
         );
         
+      -- LAP memory core (storing and reading LAPs memories) 
       lap_ctrl_inst : lap_ctrl
         port map (
             clk => clk,         
