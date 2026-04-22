@@ -36,3 +36,21 @@ Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny
 ## Popis VHDL modulů:
 ### clk_en:
 - generuje signál 100Hz (perioda 10 ns)
+
+### debounce
+- eliminuje switch bounce
+
+### stopwatch_ctrl
+- řídí počítání času
+
+### time_counter
+- sčítá signály po 10ns, které pak nechává přetéct na vyšší jednotky
+
+### lap_register
+- složí jako paměť k ukládání a vyvolávání času
+
+### display_switch
+- ovládá input data pro driver
+
+### display_driver
+- ovládá segmenty na 7 segmentovém display, podle dat z display_switche
