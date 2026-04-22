@@ -65,4 +65,4 @@ Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny
 - **[Display_switch](docs/display_switch.md):**
 
 ### Display_driver
-**[Display_driver](docs/display_driver.md):**
+- **[Display_driver](docs/display_driver.md):**
