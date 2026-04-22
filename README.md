@@ -53,7 +53,7 @@ Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny
 | `btn_press` | out | `std_logic` | One-clock pulse generated when the button is pressed |
   
 ### Stopwatch_ctrl
-**[stopwatch_ctrl](.github/stopwatch_ctrl.md):**
+**[stopwatch_ctrl](.docs/stopwatch_ctrl.md):**
 
 ### Time_counter
 - sčítá signály po 10ns, které pak nechává přetéct na vyšší jednotky
