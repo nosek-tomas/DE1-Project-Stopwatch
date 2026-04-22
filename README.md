@@ -19,7 +19,7 @@
 Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny pomocí programu **Vivado**.
 
 ### Top-level schéma:
-<img width="1349" height="606" alt="IMG_0178" src="./img/readme_pics/top_level.png" />
+<img width="1349" height="606" alt="IMG_0178" src="./img/readme_pics/top_level.jpg" />
 
 ### Princip ovládání:
 <img width="1152" height="648" alt="SCHEMA_s_popisky" src="./img/readme_pics/SCHEMA_s_popisky.jpg" />
@@ -33,36 +33,14 @@ Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny
 <img width="600" height="434" alt="nexys-a7" src="./img/readme_pics/nexys-a7.png" />
 
 
-## Popis VHDL modulů:
-### Clk_en:
-- generuje signál 100Hz (perioda 10 ns)
-  
-| **Port** | **Direction** | **Type** | **Description** |
-| :-: | :-: | :-- | :-- |
-| `clk` | in | `std_logic` | Main clock |
-| `rst` | in | `std_logic` | High-active synchronous reset |
-| `ce` | out | `std_logic` | Vector of input bits, 4 per digit |
-   
-### Debounce
-- eliminuje switch bounce
-| **Port** | **Direction** | **Type** | **Description** |
-| :-: | :-: | :-- | :-- |
-| `clk` | in  | `std_logic` | Main clock |
-| `rst` | in  | `std_logic` | High-active synchronous reset |
-| `btn_in` | in  | `std_logic` | Raw push-button input (may contain bounce) |
-| `btn_press` | out | `std_logic` | One-clock pulse generated when the button is pressed |
-  
-### Stopwatch_ctrl
+## VHDL componenty:
+
 - **[Stopwatch_ctrl](docs/stopwatch_ctrl.md):**
 
-### Time_counter
 - **[Time_counter](docs/time_counter.md):**
 
-### Lap_ctrl
 - **[Lap_ctrl](docs/lap_ctrl.md):**
 
-### Display_switch
 - **[Display_switch](docs/display_switch.md):**
 
-### Display_driver
 - **[Display_driver](docs/display_driver.md):**
