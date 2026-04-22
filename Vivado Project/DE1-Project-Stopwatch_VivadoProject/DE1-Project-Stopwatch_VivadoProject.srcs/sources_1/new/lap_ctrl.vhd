@@ -39,7 +39,7 @@ architecture Behavioral of lap_ctrl is
     -- 3. LAP memory "storage"
     ----------------------------------------------------------------
     type t_memory is array (0 to 15) of std_logic_vector(31 downto 0); --new datatype
-    signal s_memory : t_memory := (others => (others => '0'));         -- Create storage and initialise with zeros 
+    signal sig_memory : t_memory := (others => (others => '0'));         -- Create storage and initialise with zeros 
     
 begin
 
@@ -61,12 +61,12 @@ begin
     begin
         if rising_edge(clk) then
             if rst = '1' then
-                s_memory <= (others => (others => '0')); -- reset memory
+                sig_memory <= (others => (others => '0')); -- reset memory
                 -- led <= (others => '0'); -- reset LEDS; no needindg for that, state is based on memory allocation
                 sig_write_ptr <= 0;    -- move pointer to first memory slot
             elsif lap_button = '1' then
                 if sig_write_ptr < 16 then
-                        s_memory(sig_write_ptr) <= time_actual; --save to actually pointed memory slot
+                        sig_memory(sig_write_ptr) <= time_actual; --save to actually pointed memory slot
                         sig_write_ptr <= sig_write_ptr + 1;     -- increment pointer to next memory slot
                     end if;
             end  if;
@@ -76,9 +76,32 @@ begin
     ----------------------------------------------------------------
     -- Reading and showing selected lap from memory
     ----------------------------------------------------------------     
-    p_memory_read_and_leds : process (sw, sig_write_ptr, s_memory, sig_ce_2hz)
+    p_memory_read_and_leds : process (sw, sig_write_ptr, sig_memory, sig_ce_2hz)
     begin
-    
+        
+        -- Set dafault values which will be set at the end of process, if nothing else done in process
+        lap_time_output <= (others => '0');
+        show_lap <= '0';            
+        led  <= (others => '0'); 
+
+        -- Show saved memories from left side of the board
+        for i in 0 to 15 loop
+            if i < sig_write_ptr then
+                led(15 - i) <= '1';
+            end if;
+        end loop;
+
+        -- 3) Searching for active switch with saved data --> from left side of board. First from left has priority
+        for i in 0 to 15 loop
+            if sw(15 - i) = '1' and i < sig_write_ptr then
+                lap_time_output <= sig_memory(i);
+                show_lap <= '1';
+                led(15 - i) <= sig_ce_2hz; -- LED blinking
+                
+                exit; -- End searching for active switch
+                
+            end if;
+        end loop;
     end process p_memory_read_and_leds;
 
 end Behavioral;
