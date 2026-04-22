@@ -53,16 +53,16 @@ Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny
 | `btn_press` | out | `std_logic` | One-clock pulse generated when the button is pressed |
   
 ### Stopwatch_ctrl
-**[Stopwatch_ctrl](docs/stopwatch_ctrl.md):**
+- **[Stopwatch_ctrl](docs/stopwatch_ctrl.md):**
 
 ### Time_counter
-**[Time_counter](docs/time_counter.md):**
+- **[Time_counter](docs/time_counter.md):**
 
 ### Lap_ctrl
-**[Lap_ctrl](docs/lap_ctrl.md):**
+- **[Lap_ctrl](docs/lap_ctrl.md):**
 
 ### Display_switch
-**[Display_switch](docs/display_switch.md):**
+- **[Display_switch](docs/display_switch.md):**
 
 ### Display_driver
 **[Display_driver](docs/display_driver.md):**
