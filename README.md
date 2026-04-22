@@ -19,11 +19,17 @@
 Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny pomocí programu **Vivado**.
 
 ### Top-level schéma:
-<img width="1349" height="606" alt="IMG_0178" src="./img/readme_pics/top_level.png" />
+<img width="1349" height="606" alt="IMG_0178" src="./img/readme_pics/top_level.jpg" />
 
 ### Princip ovládání:
 <img width="1152" height="648" alt="SCHEMA_s_popisky" src="./img/readme_pics/SCHEMA_s_popisky.jpg" />
 
+| **Input** | **Output** | **Description** |
+| :-: | :-: | :-- |
+| `BTNL` | Start/stop  |  Slouží k zapnutí a vypnutí stopek |
+| `BTND` | Reset  |  Slouží jako reset stopek |
+| `BTNR` | Lap  |  Main clock |
+| `LED(15:0)` | Show lap  |  Main clock |
 
 
 
@@ -33,44 +39,14 @@ Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny
 <img width="600" height="434" alt="nexys-a7" src="./img/readme_pics/nexys-a7.png" />
 
 
-## Popis VHDL modulů:
-### Clk_en:
-- generuje signál 100Hz (perioda 10 ns)
-  
-| **Port** | **Direction** | **Type** | **Description** |
-| :-: | :-: | :-- | :-- |
-| `clk` | in | `std_logic` | Main clock |
-| `rst` | in | `std_logic` | High-active synchronous reset |
-| `ce` | out | `std_logic` | Vector of input bits, 4 per digit |
-   
-### Debounce
-- eliminuje switch bounce
-| **Port** | **Direction** | **Type** | **Description** |
-| :-: | :-: | :-- | :-- |
-| `clk` | in  | `std_logic` | Main clock |
-| `rst` | in  | `std_logic` | High-active synchronous reset |
-| `btn_in` | in  | `std_logic` | Raw push-button input (may contain bounce) |
-| `btn_press` | out | `std_logic` | One-clock pulse generated when the button is pressed |
-  
-### Stopwatch_ctrl
-- řídí počítání času
-  
-| **Port** | **Direction** | **Type** | **Description** |
-| :-: | :-: | :-- | :-- |
-| `clk` | in  | `std_logic` | Main clock |
-| `rst` | in  | `std_logic` | High-active synchronous reset |
-| `btn_in` | in  | `std_logic` | Raw push-button input (may contain bounce) |
-| `clk_en_in` | in | `std_logic` | One-clock pulse generated when the button is pressed |
-| `clk_en_out` | out | `std_logic` | One-clock pulse generated when the button is pressed |
+## VHDL componenty:
 
-### Time_counter
-- sčítá signály po 10ns, které pak nechává přetéct na vyšší jednotky
+- **[Stopwatch_ctrl](docs/stopwatch_ctrl.md):**
 
-### Lap_register
-- složí jako paměť k ukládání a vyvolávání času
+- **[Time_counter](docs/time_counter.md):**
 
-### Display_switch
-- ovládá input data pro driver
+- **[Lap_ctrl](docs/lap_ctrl.md):**
 
-### Display_driver
-- ovládá segmenty na 7 segmentovém display, podle dat z display_switche
+- **[Display_switch](docs/display_switch.md):**
+
+- **[Display_driver](docs/display_driver.md):**
