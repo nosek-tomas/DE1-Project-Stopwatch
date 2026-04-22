@@ -23,7 +23,12 @@ Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny
 
 ### Princip ovládání:
 <img width="1152" height="648" alt="SCHEMA_s_popisky" src="./img/readme_pics/SCHEMA_s_popisky.jpg" />
-
+| **Input** | **Output** | **Description** |
+| :-: | :-: | :-- |
+| `BTNL` | Start/stop  |  Main clock |
+| `BTND` | Reset  |  Main clock |
+| `BTNR` | Lap  |  Main clock |
+| `LED(15:0)` | Start/stop  |  Main clock |
 
 
 
