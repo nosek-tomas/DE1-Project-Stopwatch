@@ -33,6 +33,7 @@ Všechny čítače jsou nakonec sloučeny do jediného 32bitového vektoru `time
 
 
 ## Simulace (Testbench)
+[Zdrojový kód testbenche](../Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sim_1/new/time_counter_tb.vhd)
 
 Testbench (`time_counter_tb`) testuje nálsedující **požadované funkce:**
 
@@ -41,7 +42,7 @@ Testbench (`time_counter_tb`) testuje nálsedující **požadované funkce:**
 3. **Test zastavení:** Vypne se signál `en` a kontroluje se, zda časovač přestal počítat a drží aktuální hodnotu.
 4. **Test resetu při zastavení:** Znovu se aktivuje `rst` ve chvíli, kdy hodiny nepočítají, aby se potvrdilo korektní vynulování v klidovém stavu.
 
-[Zdrojový kód testbenche](../Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sim_1/new/time_counter_tb.vhd)
+
 
 ![Ukázka simulace time_counter](../img/simulations/time_counter_sim.png)
 *(Obrázek: Průběh signálů ze simulace testbenche ukazující funkční přetečení do následujícího čítače, tj. bod 2)*
