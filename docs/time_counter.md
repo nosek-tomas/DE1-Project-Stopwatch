@@ -12,7 +12,7 @@ Tato komponenta funguje jako digitální časovač (stopky) využívající BCD 
 
 ## Princip fungování
 
-Komponenta interně využívá kaskádové zapojení osmi menších čítačů (`[counter2_bcd](../docs/counter2_bcd.md)`). Každý z nich reprezentuje jeden řád času:
+Komponenta interně využívá kaskádové zapojení osmi menších čítačů ([`counter2_bcd`](../docs/counter2_bcd.md)). Každý z nich reprezentuje jeden řád času:
 
 1. **Setiny a desetiny sekundy** (počítají 0–9)
 2. **Jednotky a desítky sekund** (jednotky 0–9, desítky 0–5, tj. do 59)
