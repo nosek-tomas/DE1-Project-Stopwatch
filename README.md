@@ -30,6 +30,7 @@ Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny
 | `BTND` | Reset  |  Slouží jako reset stopek |
 | `BTNR` | Lap  |  Slouží k uložení času |
 | `LED(15:0)` | Show lap  |  Rozsvícená ledka signalizuje uložený čas v registru |
+| `sw(15:0)` | Show lap  |  Vyvolá čas uložený v paměti registru na display |
 
 
 
