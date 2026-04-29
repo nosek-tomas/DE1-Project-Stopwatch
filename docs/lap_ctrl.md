@@ -23,11 +23,8 @@ Komponenta se skládá ze tří hlavních logických bloků:
 2. **Čtení a zobrazení (Prioritní enkodér):** Pokud uživatel přepne některý z přepínačů `sw` nahoru, komponenta zkontroluje, zda je na dané pozici uložený platný čas. Přepínače jsou mapovány zleva doprava (SW15 ukazuje 1. mezičas, SW14 ukazuje 2. mezičas atd.). Vyhledávání má **prioritu zleva** – pokud je aktivních více přepínačů najednou, zobrazí se ten nejvíce vlevo. Po úspěšném výběru se čas pošle na výstup `lap_time_output` a logická 1 na `show_lap`. Pokus o zobrazení prázdného slotu je ignorován.
 3. **Logika LED diod:** Komponenta neustále rozsvěcuje LED diody odpovídající uloženým mezičasům zleva doprava. Pomocí interních děliček (`clk_en` a `counter2_bcd`) je navíc generován 2Hz signál. Pokud je pomocí přepínače zobrazen konkrétní mezičas, jeho příslušná LED dioda začne s touto frekvencí blikat.
 
-## Schéma zapojení
 [Zdrojový kód komponenty](../Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sources_1/new/lap_ctrl.vhd)
 
-![Ukázka simulace lap_ctrl](../img/readme_pics/lap_ctrl_schema.png)
-*(Obrázek: Schéma zapojení komponenty lap_ctrl)*
 
 ## Simulace (Testbench)
 [Zdrojový kód testbenche](../Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sim_1/new/lap_ctrl_tb.vhd)
