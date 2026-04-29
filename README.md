@@ -24,12 +24,12 @@ Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny
 ### Princip ovládání:
 <img width="1152" height="648" alt="SCHEMA_s_popisky" src="./img/readme_pics/SCHEMA_s_popisky.jpg" />
 
-| **Input** | **Output** | **Description** |
+| **Vstup** | **Výstup** | **Popis** |
 | :-: | :-: | :-- |
 | `BTNL` | Start/stop  |  Slouží k zapnutí a vypnutí stopek |
 | `BTND` | Reset  |  Slouží jako reset stopek |
-| `BTNR` | Lap  |  Main clock |
-| `LED(15:0)` | Show lap  |  Main clock |
+| `BTNR` | Lap  |  Slouží k uložení času |
+| `LED(15:0)` | Show lap  |  Rozsvícená ledka signalizuje uložený čas v registru |
 
 
 
