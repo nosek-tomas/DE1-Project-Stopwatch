@@ -1,6 +1,5 @@
-# Stopwatch_ctrl
-- řídí počítání času
-
+# Komponenta: `stopwatch_ctrl`
+Funguje jako řídící jednotka pro `time_counter`. Vypíná a zapíná tok clock signálu clock_en zformovaného na 100 Hz. 
 ## Vstupy a Výstupy
 | **Port** | **Směr** | **Typ** | **Popis** |
 | :-: | :-: | :-- | :-- |
