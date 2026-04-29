@@ -24,10 +24,13 @@ Komponenta interně využívá kaskádové zapojení osmi menších čítačů (
 Všechny čítače jsou nakonec sloučeny do jediného 32bitového vektoru `time_actual`, kde každé 4 bity (nibble) obsahují binární hodnotu jedné číslice.
 
 ## Schéma zapojení
+[Zdrojový kód komponenty](../Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sources_1/new/time_counter.vhd)
+
+<div align="center">
 ![Ukázka simulace time_counter](../img/readme_pics/time_counter_schema.png)
 *(Obrázek: Schéma zapojení kaskády čítačů)*
+</div>
 
-[Zdrojový kód komponenty](../Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sources_1/new/time_counter.vhd)
 
 ## Simulace (Testbench)
 
@@ -41,4 +44,4 @@ Testbench (`time_counter_tb`) testuje nálsedující **požadované funkce:**
 [Zdrojový kód testbenche](../Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sim_1/new/time_counter_tb.vhd)
 
 ![Ukázka simulace time_counter](../img/simulations/time_counter_sim.png)
-*(Obrázek: Průběh signálů ze simulace testbenche ukazující funkční přetečení do následujícího čítače, tj. bodd 2)*
+*(Obrázek: Průběh signálů ze simulace testbenche ukazující funkční přetečení do následujícího čítače, tj. bod 2)*
