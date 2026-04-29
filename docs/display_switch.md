@@ -1,4 +1,4 @@
-# Display_switch
+# Komponenta: `Display_switch`
 - ovládá input data pro driver
 
 | **Port** | **Směr** | **Typ** | **Popis** |
