@@ -20,7 +20,12 @@
 ## Simulace (testbench)
 [Zdrojový kód testbenche](../Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sim_1/new/stopwatch_ctrl_tb.vhd)
 
+Testbench (`display_ctrl_tb`) testuje následující **požadované funkce:**
 
+1. **Test zobrazení běžícího času:** Kontroluje se výchozí stav, kdy je `show_lap` nastaveno na '0'. Výstup musí přesně kopírovat hodnotu na vstupu `data_live`.
+2. **Test zobrazení mezičasu:** Signál `show_lap` se přepne na '1'. Výstup se musí okamžitě změnit a zobrazovat hodnotu ze vstupu `data_lap`.
+3. **Test běhu stopek na pozadí:** Zatímco je zobrazen mezičas (`show_lap = '1'`), testbench změní hodnotu `data_live` (simuluje běžící stopky). Ověřuje se, že tato změna nijak neovlivní výstup a na displeji zůstává "zamrznutý" mezičas.
+4. **Test změny mezičasu a návratu:** Změní se vstupní data mezičasu (simuluje přepnutí uživatele na jinou paměťovou pozici), což se musí ihned promítnout na výstupu. Následně se `show_lap` přepne zpět na '0', čímž se výstup úspěšně vrátí k zobrazení aktuálního běžícího času stopek.
 
 
 ![Ukázka simulace display_switch](../img/simulations/display_ctrl_sim.png)
