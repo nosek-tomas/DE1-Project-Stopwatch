@@ -1,5 +1,5 @@
 # Komponenta: `Display_ctrl`
-- ovládá input data pro driver. Volí, zda se bude zobrazovat aktuální čas, nebo čas uložený v požadovaném registru
+Volí, zda se bude zobrazovat aktuální čas, nebo čas uložený v požadovaném registru
 
 | **Port** | **Směr** | **Typ** | **Popis** |
 | :-: | :-: | :-- | :-- |
