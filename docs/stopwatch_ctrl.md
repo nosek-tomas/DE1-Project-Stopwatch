@@ -10,11 +10,10 @@ Funguje jako řídící jednotka pro `time_counter`. Vypíná a zapíná tok clo
 | `clk_en_out` | out | `std_logic` | Clock signál ustředěný na 100 Hz |
 
 ## Princip fungování
+[Zdrojový kód komponenty](../Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sources_1/new/stopwatch_ctrl.vhd)
+
 Po stisku `BTNL` začne propouštět clc_en signál do counteru nebo naopak přestane propouštět signál.
 
-
-## Schéma zapojení
-[Zdrojový kód komponenty](../Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sources_1/new/stopwatch_ctrl.vhd)
 
 
 ## Simualce (Testbench)
