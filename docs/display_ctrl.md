@@ -1,4 +1,4 @@
-# Komponenta: `Display_ctrl`
+# Komponenta: `display_ctrl`
 Volí, zda se bude zobrazovat aktuální čas, nebo čas uložený v požadovaném registru
 
 | **Port** | **Směr** | **Typ** | **Popis** |
