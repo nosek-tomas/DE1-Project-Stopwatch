@@ -21,8 +21,8 @@ Komponenta je založena na metodě časového multiplexování. Obsahuje dělič
 Podle aktuálního stavu tohoto tříbitového čítače řídicí proces automaticky provádí tři úkony současně:
 
 1. **Aktivace displeje:** Nastaví příslušný bit ve vektoru `anode` na logickou '0', čímž fyzicky zapne jeden konkrétní z osmi displejů.
-2. **Směrování dat:** Vybere odpovídající 4 bity (jeden nibble) z 32bitového vstupu `data`. Tyto 4 bity pošle do subkomponenty dekodéru `bin2seg`, který je transformuje na signály pro rozsvícení správných segmentů číslice.
-3. **Řízení teček:** Pevně definuje, zda má na dané pozici svítit desetinná tečka (`datapoint`). V této konkrétní implementaci svítí tečka na 3., 5. a 7. pozici, což slouží k optickému oddělení formátu času (např. oddělení hodin, minut, sekund a setin).
+2. **Směrování dat:** Vybere odpovídající 4 bity z 32bitového vstupu `data`. Tyto 4 bity pošle do subkomponenty dekodéru `bin2seg`, který je transformuje na signály pro rozsvícení správných segmentů číslice.
+3. **Řízení teček:** Pevně definuje, zda má na dané pozici svítit desetinná tečka (`datapoint`). V této konkrétní implementaci svítí tečka na 3., 5. a 7. pozici, což slouží k optickému oddělení formátu času (oddělení hodin, minut, sekund a setin).
 
 Díky rychlému střídání těchto 8 stavů se na displeji vykreslí kompletní 32bitové slovo.
 
