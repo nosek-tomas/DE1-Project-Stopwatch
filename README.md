@@ -48,7 +48,7 @@ Zdrojový kod je v jazyce **VHDL**, testovací prostředí a simulace vytvořeny
 
 - **[Lap_ctrl](docs/lap_ctrl.md):**
 
-- **[Display_switch](docs/display_switch.md):**
+- **[Display_ctrl](docs/display_ctrl.md):**
 
 - **[Display_driver](docs/display_driver.md):**
 
