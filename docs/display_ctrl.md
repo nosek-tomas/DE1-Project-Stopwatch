@@ -10,9 +10,12 @@
 
 ## Princip fungování
 
+Komponenta plní funkci datového multiplexeru. Její chování je plně podřízeno stavu řídicího signálu `show_lap`:
+
+* **Zobrazení aktuálního času (`show_lap = '0'`):** Na výstup `data_out` je plynule propouštěn signál ze vstupu `data_live`. Displej tak reaguje na každou změnu běžících stopek.
+* **Zobrazení uloženého mezičasu (`show_lap = '1'`):** Komponenta okamžitě přepne zdroj dat a na výstup začne směrovat statická data ze vstupu `data_lap`. 
 
 
-## Schéma zapojení
 [Zdrojový kód komponenty](../Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sources_1/new/display_ctrl.vhd)
 
 
