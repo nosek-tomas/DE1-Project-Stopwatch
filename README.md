@@ -7,7 +7,6 @@ Tento repozitář obsahuje semestrální projekt do předmětu Digitální elekt
 - Tomáš Nosek (270975)
 - Eduard Josefík (259025)
 
----
 
 
 ## Vlastnosti návrhu
@@ -17,7 +16,7 @@ Tento repozitář obsahuje semestrální projekt do předmětu Digitální elekt
 * Vizuální odezva stavu paměti pomocí soustavy LED diod (svícení = uloženo, blikání = zobrazeno).
 
 
----
+
 
 ## Princip ovládání:
 
@@ -31,7 +30,7 @@ Tento repozitář obsahuje semestrální projekt do předmětu Digitální elekt
 
 <img width="1152" height="648" alt="SCHEMA_s_popisky" src="./img/readme_pics/SCHEMA_s_popisky.jpg" />
 
-### "Návod" k použití:
+### <ins>"Návod" k použití</ins>:
 1. **Měření:** Stisknutím tlačítka Start/Stop (`BTNL`) se stopky spustí a na 7segmentovém displeji se začne odpočítávat čas (od setin sekundy až po desítky hodin).
 2. **Ukládání mezičasů (LAP):** Během měření lze stisknout tlačítko LAP (`BTNR`). Systém aktuální čas uloží do interní paměti a **rozsvítí první LED diodu zcela vlevo**. Při dalším stisku se čas uloží do dalšího slotu a rozsvítí se druhá LED dioda. Interní stopky při ukládání neustále běží a měří čas.
 3. **Prohlížení paměti:** Pokud chce uživatel vidět uložený čas, zvedne příslušný přepínač (`SW`). Jakmile je přepínač zvednutý:
@@ -40,7 +39,6 @@ Tento repozitář obsahuje semestrální projekt do předmětu Digitální elekt
 4. **Priorita a zaplnění:** * Zařízení má paměť pro 16 časů (plní se zleva doprava). Pokud uživatel stiskne tlačítko LAP po sedmnácté, systém ignoruje příkaz ignoruje
    * Pokud uživatel zvedne více přepínačů naráz, systém obsahuje prioritní enkodér, který vždy **vybere a zobrazí přepínač nejvíce vlevo**.
 
----
 
 ## Struktura projektu:
 
