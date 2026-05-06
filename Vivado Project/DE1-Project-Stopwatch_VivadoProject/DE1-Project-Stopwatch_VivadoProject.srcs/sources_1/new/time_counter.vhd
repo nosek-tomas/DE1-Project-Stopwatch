@@ -15,14 +15,14 @@ architecture Behavioral of time_counter is
     -----------------------
     -- Declaration: signals
     -----------------------
-    signal sig_time_ns :  STD_LOGIC_VECTOR(3 downto 0); -- Setiny
-    signal sig_time_ms :  STD_LOGIC_VECTOR(3 downto 0); -- Desetiny
+    signal sig_time_ns :  STD_LOGIC_VECTOR(3 downto 0); -- Setiny sekundy
+    signal sig_time_ms :  STD_LOGIC_VECTOR(3 downto 0); -- Desetiny sekundy
     signal sig_time_s :  STD_LOGIC_VECTOR(3 downto 0); -- Jednotky sekund
     signal sig_time_10s :  STD_LOGIC_VECTOR(3 downto 0); -- Desitky sekund
-    signal sig_time_m :  STD_LOGIC_VECTOR(3 downto 0); -- Minuty
-    signal sig_time_10m :  STD_LOGIC_VECTOR(3 downto 0); -- Minuty
-    signal sig_time_h :  STD_LOGIC_VECTOR(3 downto 0); -- Minuty
-    signal sig_time_10h :  STD_LOGIC_VECTOR(3 downto 0); -- Minuty
+    signal sig_time_m :  STD_LOGIC_VECTOR(3 downto 0); -- Jednotky minut
+    signal sig_time_10m :  STD_LOGIC_VECTOR(3 downto 0); -- Desitky minut
+    signal sig_time_h :  STD_LOGIC_VECTOR(3 downto 0); -- Jednotky hodin
+    signal sig_time_10h :  STD_LOGIC_VECTOR(3 downto 0); -- Desitky hodin
     
     signal sig_ovf_ns : std_logic;
     signal sig_ovf_ms : std_logic;
@@ -45,11 +45,11 @@ architecture Behavioral of time_counter is
         G_MAX : positive
     );  
     port (
-        clk : in  std_logic;                              --! Main clock
-        rst : in  std_logic;                              --! High-active synchronous reset
-        en  : in  std_logic;                              --! Clock enable input
-        cnt : out std_logic_vector(G_BITS - 1 downto 0);  --! Counter value
-        ovf : out std_logic                               --! Overflow to next counter
+        clk : in  std_logic;                              -- Main clock
+        rst : in  std_logic;                              -- High-active synchronous reset
+        en  : in  std_logic;                              -- Clock enable input
+        cnt : out std_logic_vector(G_BITS - 1 downto 0);  -- Counter value
+        ovf : out std_logic                               -- Overflow to next counter
     );
     end component counter2_bcd;
 begin

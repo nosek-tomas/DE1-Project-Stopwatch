@@ -5,7 +5,7 @@ entity stopwatch_ctrl is
     Port (
         clk     : in  STD_LOGIC;
         rst     : in  STD_LOGIC;
-        btn_in  : in  STD_LOGIC; -- Btn input (afterd debouncer)
+        btn_in  : in  STD_LOGIC; -- Btn input (afterd debounce)
         clk_en_in   : in  STD_LOGIC; 
         clk_en_out  : out STD_LOGIC  
     );
@@ -30,7 +30,7 @@ begin
     end process process_toggle;
 
 
-    -- OUTPUT SIGNAL --> based if 
+    -- OUTPUT SIGNAL --> based on inputted clk_en and state of run/stop 
     clk_en_out <= clk_en_in and sig_running;
 
 end Behavioral;

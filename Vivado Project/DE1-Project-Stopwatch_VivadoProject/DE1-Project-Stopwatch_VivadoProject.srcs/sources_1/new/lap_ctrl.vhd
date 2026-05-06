@@ -36,11 +36,11 @@ architecture Behavioral of lap_ctrl is
         G_MAX : positive
     );  
     port (
-        clk : in  std_logic;                              --! Main clock
-        rst : in  std_logic;                              --! High-active synchronous reset
-        en  : in  std_logic;                              --! Clock enable input
-        cnt : out std_logic_vector(G_BITS - 1 downto 0);  --! Counter value
-        ovf : out std_logic                               --! Overflow to next counter
+        clk : in  std_logic;                              -- Main clock
+        rst : in  std_logic;                              -- High-active synchronous reset
+        en  : in  std_logic;                              -- Clock enable input
+        cnt : out std_logic_vector(G_BITS - 1 downto 0);  -- Counter value
+        ovf : out std_logic                               -- Overflow to next counter
     );
     end component counter2_bcd;
  
