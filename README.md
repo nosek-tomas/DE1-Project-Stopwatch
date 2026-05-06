@@ -71,3 +71,7 @@ Mimo tyto jsou jsou použity i komponenty `clk_en` a `debounce`, které byly vyt
 | **BUFG** (Global Buffers) | 1 | 32 | 3.13 % | 
 
 <img width="1300"  src="./img/readme_pics/utilization_graph.png" />
+
+## Demonstrace projektu
+* [Youtube video](https://youtu.be/YCcKHSogZi8) _(popis videa součástí titulků)_
+* [Poster](./img/readme_pics/Poster.pdf)
