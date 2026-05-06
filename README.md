@@ -36,13 +36,14 @@ Tento repozitář obsahuje semestrální projekt do předmětu Digitální elekt
 3. **Prohlížení paměti:** Pokud chce uživatel vidět uložený čas, zvedne příslušný přepínač (`SW`). Jakmile je přepínač zvednutý:
    * Na displeji se zobrazí  uložený mezičas (stopky na pozadí stále běží).
    * Příslušná LED dioda nad zvednutým přepínačem **začne blikat**, čímž indikuje, na který slot se uživatel právě dívá.
-4. **Priorita a zaplnění:** * Zařízení má paměť pro 16 časů (plní se zleva doprava). Pokud uživatel stiskne tlačítko LAP po sedmnácté, systém ignoruje příkaz ignoruje
+4. **Priorita a zaplnění:** 
+   * Zařízení má paměť pro 16 časů (plní se zleva doprava). Pokud uživatel stiskne tlačítko LAP po sedmnácté, systém ignoruje příkaz ignoruje
    * Pokud uživatel zvedne více přepínačů naráz, systém obsahuje prioritní enkodér, který vždy **vybere a zobrazí přepínač nejvíce vlevo**.
 
 
 ## Struktura projektu:
 
-Top-level design [`stopwatch_top`](/Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sources_1/new/stopwatch_top.vhd) se skládá z instanciace následujících VHDL komponent:
+Top-level design [`stopwatch_top`](/Vivado%20Project/DE1-Project-Stopwatch_VivadoProject/DE1-Project-Stopwatch_VivadoProject.srcs/sources_1/new/stopwatch_top.vhd) se skládá z instanciace následujících hlavních VHDL komponent:
 
 
 * **[`stopwatch_ctrl`](docs/stopwatch_ctrl.md): Řídicí jednotka stopek.**
@@ -56,6 +57,17 @@ Top-level design [`stopwatch_top`](/Vivado%20Project/DE1-Project-Stopwatch_Vivad
 * **[`display_driver2`](docs/display_driver.md): Budič 7segmentového displeje.**
   Zajišťuje časový multiplex (velmi rychlé přepínání) pro obsluhu všech osmi číslic na desce tak, aby lidské oko vnímalo obraz jako souvislý. Využívá bin2seg dekodér z počítačových cvičení.
 
-
+Mimo tyto jsou jsou použity i komponenty `clk_en` a `debounce`, které byly vytvořeny během průběhu semestru v počítačových cvičeních.
 ### Top-level schéma:
 <img width="1349" height="606" alt="IMG_0178" src="./img/readme_pics/Top_level.jpg" />
+
+## Resource Utilization
+
+| Typ zdroje (Resource) | Využito (Utilization) | K dispozici (Available) | Využití v % |
+| :--- | :---: | :---: | :---: |
+| **LUT** (Look-Up Tables) | 432 | 32 600 | 1.33 % |
+| **FF** (Flip-Flops) | 633 | 65 200 | 0.97 % |
+| **IO** (Input/Output Pins) | 52 | 210 | 24.76 % |
+| **BUFG** (Global Buffers) | 1 | 32 | 3.13 % | 
+
+<img width="600"  src="./img/readme_pics/utilization-graph.png" />
