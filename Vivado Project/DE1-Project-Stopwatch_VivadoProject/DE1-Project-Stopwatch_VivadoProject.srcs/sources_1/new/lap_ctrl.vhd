@@ -104,7 +104,7 @@ begin
     ----------------------------------------------------------------
     -- Reading and showing selected lap from memory
     ----------------------------------------------------------------     
-    p_memory_read_and_leds : process (sw, sig_write_ptr, sig_memory, sig_ce_2hz)
+    p_memory_read_and_leds : process (sw, sig_write_ptr, sig_memory, sig_ce_2hz, sig_blinking)
     begin
         
         -- Set dafault values which will be set at the end of process, if nothing else done in process

@@ -36,7 +36,8 @@ architecture Behavioral of display_driver2 is
             clk : in  std_logic;
             rst : in  std_logic;
             en  : in  std_logic;
-            cnt : out std_logic_vector(G_BITS - 1 downto 0)
+            cnt : out std_logic_vector(G_BITS - 1 downto 0);
+            ovf : out std_logic
         );
     end component counter2_bcd;
  
@@ -77,7 +78,8 @@ begin
             clk => clk,
             rst => rst,
             en  => sig_en,
-            cnt => sig_digit
+            cnt => sig_digit,
+            ovf => open
         );
 
 
