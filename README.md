@@ -13,7 +13,7 @@ Tento repozitář obsahuje semestrální projekt do předmětu Digitální elekt
 * Měření času s přesností na **setiny sekundy** ve formátu `HH:MM:SS:XX`.
 * Nezávislé běžící stopky na pozadí i během prohlížení paměti.
 * Paměť pro 16 mezičasů.
-* Vizuální odezva stavu paměti pomocí soustavy LED diod (svícení = uloženo, blikání = zobrazeno).
+* Vizuální odezva stavu pamětí pomocí  LED diod (svícení = uloženo, blikání = zobrazeno).
 
 
 
@@ -37,8 +37,8 @@ Tento repozitář obsahuje semestrální projekt do předmětu Digitální elekt
    * Na displeji se zobrazí  uložený mezičas (stopky na pozadí stále běží).
    * Příslušná LED dioda nad zvednutým přepínačem **začne blikat**, čímž indikuje, na který slot se uživatel právě dívá.
 4. **Priorita a zaplnění:** 
-   * Zařízení má paměť pro 16 časů (plní se zleva doprava). Pokud uživatel stiskne tlačítko LAP po sedmnácté, systém ignoruje příkaz ignoruje
-   * Pokud uživatel zvedne více přepínačů naráz, systém obsahuje prioritní enkodér, který vždy **vybere a zobrazí přepínač nejvíce vlevo**.
+   * Zařízení má paměť pro 16 časů (plní se zleva doprava). Pokud uživatel stiskne tlačítko LAP po sedmnácté, příkaz se ignoruje.
+   * Pokud uživatel zvedne více přepínačů naráz vybere se a zobrazí přepínač **nejvíce vlevo**.
 
 
 ## Struktura projektu:
@@ -51,7 +51,7 @@ Top-level design [`stopwatch_top`](/Vivado%20Project/DE1-Project-Stopwatch_Vivad
 * **[`time_counter`](docs/time_counter.md): Hlavní čítač času.**
   Kaskádově zapojený BCD čítač. Počítá čas od setin sekundy a přelévá hodnoty až do desítek hodin. Výstupem je 32bitový vektor pro displej.
 * **[`lap_ctrl`](docs/lap_ctrl.md): Správce paměti a uživatelského rozhraní.**
-  Komplexní blok tvořený saturační pamětí (16x32 bitů), prioritním enkodérem pro vyhledávání aktivních přepínačů a stavovým automatem pro řízení (blikání/svícení) LED diod.
+  Blok tvořený pamětí (16x32 bitů), cyklem pro vyhledávání aktivních přepínačů a generátorem pulzů pro řízení (blikání/svícení) LED diod.
 * **[`display_ctrl`](docs/display_ctrl.md): Datový multiplexer ("výhybka").**
   Komponenta, která na základě řídicího signálu plynule přepíná výstup na displej mezi "živým" časem a statickým "mezičasem" z paměti.
 * **[`display_driver2`](docs/display_driver.md): Budič 7segmentového displeje.**
