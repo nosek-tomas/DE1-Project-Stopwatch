@@ -70,4 +70,4 @@ Mimo tyto jsou jsou použity i komponenty `clk_en` a `debounce`, které byly vyt
 | **IO** (Input/Output Pins) | 52 | 210 | 24.76 % |
 | **BUFG** (Global Buffers) | 1 | 32 | 3.13 % | 
 
-<img width="600"  src="./img/readme_pics/utilization-graph.png" />
+<img width="600"  src="./img/readme_pics/utilization_graph.png" />
